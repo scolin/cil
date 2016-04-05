@@ -227,6 +227,8 @@ addTest("testrun/strloop3");
 addTest("testrun/percentm");
 addTest("testrun/percent400");
 addTest("testrun/caserange _GNUCC=1");
+addTest("testrun/alias");
+addTest("testrun/alias2");
 addTest("test/attr");
 addTest("test/attr2 _GNUCC=1");
 addTest("test/attr3 _GNUCC=1");

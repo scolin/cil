@@ -268,6 +268,13 @@ testrun/% : $(SMALL1)/%.ml
 	$(basename $<).exe
 	echo SUCCESS
 
+testrun/alias2: $(SMALL1)/alias2_1.c
+	cd $(SMALL1); \
+          $(CILLY) $(CFLAGS) \
+                    $(notdir $(wildcard $(SMALL1)/alias2_[1-9].c)) \
+                   $(EXEOUT)alias2.exe
+	cd $(SMALL1); ./alias2.exe
+
 
 combine%: $(SMALL1)/combine%_1.c
 	cd $(SMALL1); \
