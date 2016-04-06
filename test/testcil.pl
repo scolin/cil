@@ -714,6 +714,7 @@ addTest("runall/alpha");
 addTest("testrun/blockattr2 USECFG=1");
 addTest("testrun/extinline2"); #TODO: fails starting at least from gcc 6.3, maybe earlier
 addTest("test/extinline3");
+addTest("test/extinline4");
 addTest("testrun/bool");
 addTest("testrun/booleanOp USE_LOGICAL_OPERATORS=1");
 addTest("test/va_arg_pack"); #TODO: fails starting at least from gcc 6.3, maybe earlier
