@@ -876,6 +876,7 @@ sub doit {
         }
 
         if ($self->{numUnexFailure} > 0) {
+          print("Exiting with error code 2 because at least one test failed\n");
           exit 2;
         }
 
