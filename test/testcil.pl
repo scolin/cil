@@ -197,7 +197,7 @@ addTest("testrun/apachefptr");
 addTest("testrun/asm1 _GNUCC=1");
 addTest("test/asm2 _GNUCC=1");
 addTest("test/asm3 _GNUCC=1");
-addTest("test/asm4 _GNUCC=1");
+addTest("test/asm4 _GNUCC=1"); #TODO: starts failing somewhere between gcc 8.3.9 and gcc 9.3.0
 addTest("test/asm_emptyclobberallowed _GNUCC=1");
 addTest("testobj/asm5 _GNUCC=1");
 
@@ -262,7 +262,7 @@ addTest("test/const7 ");
 addTest("testrun/const8 ");
 addTest("test/const9 ");
 addTest("testrun/const10 ");
-addTest("testrun/const11 ");
+addTest("testrun/const11 "); #TODO: starts failing somewhere between gcc 10.2.1 and gcc 11.3.0
 addTest("testrun/const12 ");
 addTest("test/const13 WARNINGS_ARE_ERRORS=1");
 addBadComment("test/const13", "Minor. Const warnings from generated code - need more casts.");
@@ -359,7 +359,7 @@ addTest("testrun/vararg6");
 addTest("test/vararg7 _GNUCC=1");
 addTest("testrun/va-arg-1 _GNUCC=1");
 addTest("testrun/va-arg-2 _GNUCC=1");
-addTest("testrun/va-arg-7 _GNUCC=1");
+addTest("testrun/va-arg-7 _GNUCC=1"); #TODO: fails starting at least from gcc 6.3, maybe earlier
 addTest("test/arrsize ");
 addTest("testrun/comma1 _GNUCC=1");
 addTest("test/retval");
@@ -392,7 +392,7 @@ addTest("testrun/memcpy1");
 
 addTest("test/noreturn ");
                 
-addTest("test/constrexpr ");
+addTest("test/constrexpr "); #TODO: fails starting at least from gcc 6.3, maybe earlier
 
 addTest("testrun/flexible-array-member ");
 addTest("test-bad1/flexible-array-member-bad ");
@@ -433,11 +433,11 @@ addTest("combine2 ");
 addTest("combine3 ");
 addTest("combine5 ");
 addTest("combine6 ");
-addTest("combine8 ");
+addTest("combine8 "); #TODO: starts failing somewhere between gcc 9.3.0 and gcc 10.2.1
 addTestFail("combine9 ", "Incompatible declaration for g");
 addTest("combine10 ");
 addTest("combine11 ");
-addTest("combine12 ");
+addTest("combine12 "); #TODO: starts failing somewhere between gcc 9.3.0 and gcc 10.2.1
 addTest("combine13 ");
 addTest("combine14 ");
 addTest("combine15 ");
@@ -445,7 +445,7 @@ addTest("combine16 ");
 addTest("combine17 ");
 addTest("combine18 ");
 addTest("combine20 ");
-addTest("combine21 ");
+addTest("combine21 "); #TODO: fails starting at least from gcc 6.3, maybe earlier
 addTest("combine22 ");
 addBadComment("combine22", "Bug. Outstanding since 1.3.6 at least");
 addTest("combinealias ");
@@ -456,15 +456,15 @@ addTest("combineenum3 ");
 addTest("combine_init ");
 addTest("combineinline1 ");
 addBadComment("combineinline1", "Bug. Outstanding since 1.3.6 at least");
-addTest("combineinline2 ");
+addTest("combineinline2 "); #TODO: fails starting at least from gcc 6.3, maybe earlier
 addTest("combineinline3 ");
 addBadComment("combineinline3", "Bug. Outstanding since 1.3.6 at least");
 addTest("combineinline4 ");
 addBadComment("combineinline4", "Bug. Outstanding since 1.3.6 at least");
 addTest("combineinline6 ");
 addTest("combinestruct1 ");
-addTest("mixedcomb ");
-addTest("testrun/math1 ");
+addTest("mixedcomb "); #TODO: starts failing somewhere between gcc 9.3.0 and gcc 10.2.1
+addTest("testrun/math1 "); #TODO: starts failing somewhere between gcc 6.3.0 and gcc 7.4.0
 addTest("test/linuxcombine1_1 ");
 
 addTest("arcombine _GNUCC=1");
@@ -484,7 +484,7 @@ addBadComment("testrun/wrongnumargs",
 addTest("test/restrict EXTRAARGS=-std=c9x _GNUCC=1");
 addTest("test/restrict1 _GNUCC=1");
 addTest("testrun/rmtmps1 ");
-addTest("testrun/rmtmps2 _GNUCC=1");
+addTest("testrun/rmtmps2 _GNUCC=1"); #TODO: fails starting at least from gcc 6.3, maybe earlier
 addTest("test/proto1 ");
 addBadComment("test/proto1", 
 	      "Bug. CIL doesn't like pointers to old-style functions...");
@@ -496,7 +496,7 @@ addTest("testrun/voidarg ");
 addTest("testrun/union2 ");
 addTest("testrun/union3 ");
 addTest("test/union5 ");
-addTest("testrun/union6 ");
+addTest("testrun/union6 "); #TODO: starts succeeding somewhere between gcc 10.2.1 and gcc 11.3.0, then re-fails between 12.2.0 and 12.4.0
 addBadComment("testrun/union6",
   "Bug. Unsupported C11 implicit initialization of union padding.");
 addTest("runall/extinline ");
@@ -572,7 +572,7 @@ addTest("merge-ar ");
 
 addTest("testrun/sizeof1");
 addTest("testrun/sizeof2");
-addTest("test/sizeof3");
+addTest("test/sizeof3"); #TODO: succeeds starting at least from gcc 6.3, maybe earlier
 addBadComment("test/sizeof3", "Bug. Constant-folding of very large arrays does not work on 32-bit machines.");
 addTest("test/outofmem ");
 addTest("testrun/builtin ");
@@ -617,21 +617,24 @@ addTest("scott/sockaddr $gcc");
 # misc...
 addTest("scott/constdecl");
 addTest("scott/oldstyle");
-addTest("scott/typeof $gcc");
-addTest("scott/asmfndecl $gcc");
+addTest("scott/typeof $gcc"); #TODO: starts failing somewhere between gcc 13.3.0 and gcc 14.2.0
+addTest("scott/asmfndecl $gcc"); #TODO: succeeds starting at least from gcc 6.3, maybe earlier
 addBadComment("scott/asmfndecl", "Notbug. Not a bug if fails on a non-Linux machine ;-)");
 addTest("scott/open $gcc");
 addTest("scott/constfold");
 addTest("scott/mode_sizes $gcc");       # mode(__QI__) stuff
 addTest("scott-nolink/brlock $gcc");
+
+
 addTest("scott/regparm0 $gcc");         # this works, unfortunately...  but the bug has been fixed in CIL
+                                        #TODO: succeeds starting at least from gcc 6.3, maybe earlier
 addBadComment("scott/regparm0", "Notbug. Some gcc versions fail to compile this test on i386");
 addTest("scott/unscomp");               # kernel/fs/buffer.c
 addTest("scott/thing");
 
 # current problematic test cases
 addTest("mergeinline");
-addTest("scott/uninit_tmp");
+addTest("scott/uninit_tmp"); #TODO: starts failing somewhere between gcc 13.3.0 and gcc 14.2.0
 addTest("combine_samefn");
 addBadComment("combine_samefn", "Bug. Outstanding since 1.3.6 at least");
 addTest("combine_node_alloc");
@@ -652,7 +655,7 @@ addTest("testrun/constfold EXTRAARGS=\"--domakeCFG --dopartial\"");
 addBadComment("testrun/constfold", "Bug. Wrong constant folding.  #2276515 on sourceforge.");
 
 # tests of things implemented for EDG compatibility
-addTest("mergestruct");
+addTest("mergestruct"); #TODO: starts failing somewhere between gcc 9.3.0 and gcc 10.2.1
 
 # Test for a merge bug in global variables initializations
 addTest("mergeinit");
@@ -663,7 +666,7 @@ addTest("runall/runall_misc");
 
 
 # simple test of combiner
-addTest("comb $gcc");
+addTest("comb $gcc"); #TODO: starts failing somewhere between gcc 9.3.0 and gcc 10.2.1
 
 # test combiner's ability to detect inconsistency
 addTest("baddef");
@@ -682,11 +685,11 @@ addTest("test/static");
 addTest("scott-nogcc/funcname $gcc");
 addTest("scott/litstruct $gcc");
 addTest("scott/main $gcc");
-addTest("scott/globalprob $gcc");
+addTest("scott/globalprob $gcc"); #TODO: succeeds starting at least from gcc 6.3, maybe earlier
 addBadComment("scott/globalprob", "Notbug. Not a bug if fails on a non-Linux machine ;-)");
 addTest("scott/bisonerror $gcc");
 addTest("scott/cmpzero");
-addTest("scott/kernel1 $gcc");
+addTest("scott/kernel1 $gcc"); #TODO: starts failing somewhere between gcc 13.3.0 and gcc 14.2.0
 addTest("scott/kernel2 $gcc");
 addTest("scott/xcheckers $gcc");
 addTest("scott/memberofptr $gcc");
@@ -695,7 +698,7 @@ addTest("scott/invalredef2 $gcc");
 addTest("scott/errorinfn");
 addTest("scott/unionassign");
 addTest("scott/structattr");
-addTest("scott/neg64");
+addTest("scott/neg64"); #TODO: starts failing somewhere between gcc 13.3.0 and gcc 14.2.0
 addTest("testrun/arrayinitsize");
 addTest("test-bad/enuminit2");
 addTest("scott/volatilestruct");
@@ -709,11 +712,11 @@ addTest("testrun/decl_mix_stmt");
 addTest("scott/enumattr");
 addTest("runall/alpha");
 addTest("testrun/blockattr2 USECFG=1");
-addTest("testrun/extinline2");
+addTest("testrun/extinline2"); #TODO: fails starting at least from gcc 6.3, maybe earlier
 addTest("test/extinline3");
 addTest("testrun/bool");
 addTest("testrun/booleanOp USE_LOGICAL_OPERATORS=1");
-addTest("test/va_arg_pack");
+addTest("test/va_arg_pack"); #TODO: fails starting at least from gcc 6.3, maybe earlier
 addTest("testrun/compound1");
 addBadComment("testrun/compound1", "Notbug. Undefined behavior (probably).");
 addTest("testrun/compound2");
